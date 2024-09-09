@@ -112,7 +112,7 @@ namespace HelloDungeon
                     Console.WriteLine("What has to be broken before you can use it?");
 
                     //Store the amount of attempts the player has remaining
-                    int attemptsRemaining = numberOfAttempts;
+                    int attemptsRemaining = numberOfAttempts - i;
 
                     //Displays the remaining number of attempts
                     Console.WriteLine("Attempts Remaining: " + attemptsRemaining);
@@ -130,13 +130,14 @@ namespace HelloDungeon
                         currentArea++;
                         return;
                     }
-
-                    //If the player doesn't answer correctly deal damage to them
-                    Console.WriteLine("Incorrect! The monkey laughs at you! It hurts..." +
-                        "you take 5 points of damage.");
-                    Console.ReadKey();
-                    health -= 5;
-
+                    else if (input !="egg")
+                    {
+                        //If the player doesn't answer correctly deal damage to them
+                        Console.WriteLine("Incorrect! The monkey laughs at you! It hurts..." +
+                            "you take 5 points of damage.");
+                        Console.ReadKey();
+                        health -= 5;
+                    }
 
                     //If the player has died after guessing
                     if (health <= 0)
